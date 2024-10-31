@@ -1,2 +1,2 @@
 # kernel-docs
-Documentation about the Ubuntu Linux kernel, its development processes, tools, schedules, and more.
+Documentation about the Ubuntu Linux kernel, mainly focused on its development processes, tools, schedules, and more.
