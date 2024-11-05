@@ -1,8 +1,7 @@
 # How to build an Ubuntu Linux kernel
 
-If you have patches you need to apply to the Ubuntu Linux kernel, or you want 
-to change some kernel configs, you may need to build your kernel from source. 
-Follow these steps to build and customise the Ubuntu Linux kernel.
+If you have patches you need to apply to the Ubuntu Linux kernel, or you want to change some kernel configs, you may need to build your kernel from source.
+Follow these steps to customise and build the Ubuntu Linux kernel locally.
 
 ## Prerequisites
 
@@ -10,17 +9,14 @@ This guide supports Xenial Xerus and newer.
 
 It is recommended to have 8GB of RAM or more to build the Linux kernel.
 
-If this is the first time you are building a kernel on your system, you will
-need to {ref}`set up your build environment <how-to-build-kernel-setup>` and
-{ref}`install the required packages <how-to-build-kernel-install-packages>`.
+If this is the first time you are building a kernel on your system, you will need to {ref}`set up your build environment <how-to-build-kernel-setup>` and {ref}`install the required packages <how-to-build-kernel-install-packages>`.
 
 Otherwise, skip ahead to {ref}`how-to-build-kernel-obtain-source`.
 
 (how-to-build-kernel-setup)=
 ### Set up build environment
 
-To build an Ubuntu kernel, you will need enable the necessary source
-repositories in the {file}`sources.list` or {file}`ubuntu.sources` file.
+To build an Ubuntu kernel, you will need enable the necessary source repositories in the {file}`sources.list` or {file}`ubuntu.sources` file.
 
 `````{tabs}
 ````{tab} Noble Numbat 24.04 (and newer)
@@ -65,20 +61,17 @@ sudo apt install -y fakeroot llvm libncurses-dev dwarves
 (how-to-build-kernel-obtain-source)=
 ## Obtain the source for an Ubuntu release
 
-There are different ways to get the kernel sources, depending on the kernel
-version you want to make changes to.
+There are different ways to get the kernel sources, depending on the kernel version you want to make changes to.
 
 ### Get kernel source for version installed on build machine
 
-Use the `apt source` command to get the source code for the kernel version
-currently running on your build machine.
+Use the `apt source` command to get the source code for the kernel version currently running on your build machine.
 
 ```{code-block} shell
 apt source linux-image-unsigned-$(uname -r)
 ```
 
-This will download and unpack the kernel source files to your current working
-directory.
+This will download and unpack the kernel source files to your current working directory.
 
 ```{code-block} text
 <working directory>
@@ -93,15 +86,11 @@ directory.
 
 % TODO: Create how-to for Git method
 
-Use Git to get the source code for other kernel versions. See {doc}`How to
-obtain kernel source for an Ubuntu release using Git
-</how-to/prepare/obtain-kernel-source-git>` for detailed instructions.
+Use Git to get the source code for other kernel versions. See {doc}`How to obtain kernel source for an Ubuntu release using Git </how-to/prepare/obtain-kernel-source-git>` for detailed instructions.
 
 ## Prepare the kernel source
 
-Once you have the kernel source, go to the kernel source working directory (e.g.
-`linux-6.8.0`) and run the following commands to ensure you have a clean build
-environment and the necessary scripts have execute permissions:
+Once you have the kernel source, go to the kernel source working directory (e.g. `linux-6.8.0`) and run the following commands to ensure you have a clean build environment and the necessary scripts have execute permissions:
 
 ```{code-block} shell
 
@@ -114,12 +103,9 @@ fakeroot debian/rules clean
 
 ### Modify ABI number
 
-You should modify the kernel version number to avoid conflicts and to
-differentiate the development kernel from the kernel released by Canonical.
+You should modify the kernel version number to avoid conflicts and to differentiate the development kernel from the kernel released by Canonical.
 
-To do so, modify the ABI number (the number after the dash following the kernel
-version) to "999" in the first line of the
-`<kernel source working directory>/debian.master/changelog` file.
+To do so, modify the ABI number (the number after the dash following the kernel version) to "999" in the first line of the `<kernel source working directory>/debian.master/changelog` file.
 
 For example, modify the ABI number to "999" for Noble Numbat:
 
@@ -127,24 +113,18 @@ For example, modify the ABI number to "999" for Noble Numbat:
 linux (6.8.0-999.48) noble; urgency=medium
 ```
 
-If you are building something other than the generic Ubuntu Linux kernel, modify
-the ABI number in the
-`<kernel source working directory>/debian.<derivative>/changelog` file instead.
+If you are building something other than the generic Ubuntu Linux kernel, modify the ABI number in the `<kernel source working directory>/debian.<derivative>/changelog` file instead.
 
 ## Modify kernel configuration
 
-(Optional) To enable or disable any features using the kernel configuration,
-run:
+(Optional) To enable or disable any features using the kernel configuration, run:
 
 ```{code-block} shell
 cd <kernel source working directory>
 fakeroot debian/rules editconfigs
 ```
 
-This will invoke the `menuconfig` interface for you to edit specific
-configuration files related to the Ubuntu kernel package. You will need to
-explicitly respond with {kbd}`Y` or {kbd}`N` when making any config changes to
-avoid getting errors later in the build process.
+This will invoke the `menuconfig` interface for you to edit specific configuration files related to the Ubuntu kernel package. You will need to explicitly respond with {kbd}`Y` or {kbd}`N` when making any config changes to avoid getting errors later in the build process.
 
 ## Customise the kernel
 
@@ -161,27 +141,21 @@ fakeroot debian/rules binary
 ```
 
 ```{note}
-Run `fakeroot debian/rules clean` to clean the build environment each time
-before you recompile the kernel after making any changes to the kernel source or
-configuration.
+Run `fakeroot debian/rules clean` to clean the build environment each time before you recompile the kernel after making any changes to the kernel source or configuration.
 ```
 
-If the build is successful, several .deb binary package files will be produced
-in the directory one level above the kernel source working directory.
+If the build is successful, several .deb binary package files will be produced in the directory one level above the kernel source working directory.
 
-For example, building a kernel with version "6.8.0-999.48" on an x86_64 system
-produced the following (and more) .deb packages:
+For example, building a kernel with version "6.8.0-999.48" on an x86-64 system will produce the following .deb packages (and more):
 
 - {file}`linux-headers-6.8.0-999_6.8.0-999.48_all.deb`
-- {file}`linux-headers-6.8.0-999-generic_6.8.0-999.48_x86_64.deb`
-- {file}`linux-image-unsigned-6.8.0-999-generic_6.8.0-999.48_x86_64.deb`
-- {file}`linux-modules-6.8.0-999-generic_6.8.0-999.48_x86_64.deb`
+- {file}`linux-headers-6.8.0-999-generic_6.8.0-999.48_amd64.deb`
+- {file}`linux-image-unsigned-6.8.0-999-generic_6.8.0-999.48_amd64.deb`
+- {file}`linux-modules-6.8.0-999-generic_6.8.0-999.48_amd64.deb`
 
 ## Install the new kernel
 
-Install the debian packages generated from the previous step (on your build
-system or a different target system with the same architecture) with `dpkg -i`
-and reboot:
+Install all the debian packages generated from the previous step (on your build system or a different target system with the same architecture) with `dpkg -i` and reboot:
 
 ```{code-block} shell
 cd <kernel source working directory>/../
@@ -194,9 +168,7 @@ sudo reboot
 
 ## Test the new kernel
 
-Run any necessary testing to confirm that your changes and customisations have
-taken effect. You should also confirm that the newly installed kernel version
-matches the value in the
+Run any necessary testing to confirm that your changes and customisations have taken effect. You should also confirm that the newly installed kernel version matches the value in the
 `<kernel source working directory>/debian.master/changelog` file by running:
 
 ```{code-block} shell
