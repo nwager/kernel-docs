@@ -32,9 +32,9 @@ processes for customisation and maintenance.
 **Start here**: a hands-on introduction to Example Product for new users
 ```
 
-```{grid-item-card} [How-to guides](index)
+```{grid-item-card} [How-to guides](/how-to/index)
 
-**Step-by-step guides** covering key operations and common tasks
+**Step-by-step guides** covering common tasks involved in kernel development.
 ```
 
 ````
@@ -47,9 +47,9 @@ processes for customisation and maintenance.
 **Technical information** - specifications, APIs, architecture
 ```
 
-```{grid-item-card} [Explanations](index)
+```{grid-item-card} [Explanation](/explanation/ubuntu-linux-kernel-sources.md)
 
-**Discussion and clarification** of key topics
+**Discussion and clarification** about Ubuntu Linux kernel source repositories.
 ```
 
 ````
@@ -72,5 +72,6 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 :maxdepth: 2
 
 how-to/index
+Explanation: About Ubuntu Linux kernel sources <explanation/ubuntu-linux-kernel-sources>
 contributing
 ```
