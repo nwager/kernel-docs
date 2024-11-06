@@ -43,8 +43,8 @@ sudo snap install snapcraft --classic
 
 Configure the package source repositories for the host architecture by specifying the architecture (e.g. "[arch=amd64]" for x86-64 hosts) for each deb source list in the data sources file.
 
-`````{tabs}
-````{tab} Ubuntu 24.04 (Noble) and newer
+`````{tab-set}
+````{tab-item} Ubuntu 24.04 (Noble) and newer
 Update the `/etc/apt/sources.list.d/ubuntu.sources` file.
 
 For example, on a x86-64 host running Ubuntu 24.04 (Noble):
@@ -59,7 +59,7 @@ Architectures: amd64
 [...]
 ```
 ````
-````{tab} Ubuntu 23.10 (Mantic) and older
+````{tab-item} Ubuntu 23.10 (Mantic) and older
 Update the `/etc/apt/sources.list` file.
 For example, on a x86-64 host running Ubuntu 22.04 (Jammy):
 
@@ -150,13 +150,13 @@ You are now ready to build the kernel snap.
          [...]
    ```
 1. Build the kernel snap package.
-   `````{tabs}
-   ````{tab} UC24 and UC22
+   `````{tab-set}
+   ````{tab-item} UC24 and UC22
    ```{code-block} shell
    sudo snapcraft --build-for=arm64 --destructive-mode
    ```
    ````
-   ````{tab} UC20
+   ````{tab-item} UC20
    ```{code-block} shell
    sudo snapcraft --target-arch=arm64 --destructive-mode --enable-experimental-target-arch
    ```

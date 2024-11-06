@@ -18,8 +18,8 @@ Otherwise, skip ahead to {ref}`how-to-build-kernel-obtain-source`.
 
 To build an Ubuntu kernel, you will need enable the necessary source repositories in the {file}`sources.list` or {file}`ubuntu.sources` file.
 
-`````{tabs}
-````{tab} Noble Numbat 24.04 (and newer)
+`````{tab-set}
+````{tab-item} Noble Numbat 24.04 (and newer)
 
 Add "deb-src" to the `Types`: line in the
 {file}`/etc/apt/sources.list.d/ubuntu.sources` file.
@@ -35,7 +35,7 @@ Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
 ```
 ````
 
-````{tab} Mantic Minotaur 23.10 (and older)
+````{tab-item} Mantic Minotaur 23.10 (and older)
 
 Check that you have the following entries in the {file}`/etc/apt/sources.list`
 file. If not, add or uncomment these lines for your Ubuntu release.
