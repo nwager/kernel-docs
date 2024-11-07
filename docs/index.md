@@ -42,7 +42,7 @@ processes for customisation and maintenance.
 ````{grid} 1 1 2 2
 :reverse:
 
-```{grid-item-card} [Reference](index)
+```{grid-item-card} [Reference](/reference/index)
 
 **Technical information** - specifications, APIs, architecture
 ```
@@ -72,6 +72,7 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 :maxdepth: 2
 
 how-to/index
+reference/index
 Explanation: About Ubuntu Linux kernel sources <explanation/ubuntu-linux-kernel-sources>
 contributing
 ```

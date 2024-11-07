@@ -1,0 +1,6 @@
+If this is the first time you are building a kernel on your system, you will
+need to [set up the build environment](#set-up-build-environment) and
+[install the required packages](#install-required-packages).
+
+Otherwise, skip ahead to
+[Obtain the source for an Ubuntu release](#obtain-the-source-for-an-ubuntu-release).

@@ -11,12 +11,14 @@ Follow these steps to customise and build the Ubuntu Linux kernel locally.
 build machine.
 
 If this is the first time you are building a kernel on your system, you will
-need to [set up the build environment](#set-up-build-environment) and
-[install the required packages](#install-required-packages).
+need to {ref}`how-to-build-kernel-setup` and
+{ref}`how-to-build-kernel-install-packages`.
 
-Otherwise, skip ahead to
-[Obtain the source for an Ubuntu release](#obtain-the-source-for-an-ubuntu-release).
+Otherwise, skip ahead to {ref}`how-to-build-kernel-obtain-source`.
 
+```{only} default
+(how-to-build-kernel-setup)=
+```
 ### Set up build environment
 
 To build an Ubuntu kernel, you will need to enable the necessary source
@@ -76,6 +78,9 @@ deb-src http://archive.ubuntu.com/ubuntu jammy-updates main
 `````
 ``````
 
+```{only} default
+(how-to-build-kernel-install-packages)=
+```
 ### Install required packages
 
 To install the required packages and build dependencies, run:
@@ -86,6 +91,9 @@ sudo apt build-dep -y linux linux-image-unsigned-$(uname -r)
 sudo apt install -y fakeroot llvm libncurses-dev dwarves
 ```
 
+```{only} default
+(how-to-build-kernel-obtain-source)=
+```
 ## Obtain the source for an Ubuntu release
 
 There are different ways to get the kernel sources, depending on the kernel

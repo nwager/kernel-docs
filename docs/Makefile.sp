@@ -83,11 +83,11 @@ sp-pa11y-install:
 sp-install: $(VENVDIR)
 
 sp-run: sp-install
-	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	. $(VENV); DEFAULT="True" $(VENVDIR)/bin/sphinx-autobuild -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 sp-html: sp-install
-	. $(VENV); $(SPHINXBUILD) -W --keep-going -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(VENV); DEFAULT="True" $(SPHINXBUILD) -W --keep-going -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 sp-epub: sp-install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
@@ -167,7 +167,7 @@ sp-allmetrics: sp-html
 
 # Generate formatted docx files using Pandoc
 sp-html-docx: sp-install
-	. $(VENV); $(SPHINXBUILD) -t docx -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(VENV); DEFAULT="False" $(SPHINXBUILD) -t docx -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 	. $(VENV); pip install beautifulsoup4 lxml python-docx
 	. $(VENV); sudo apt-get -y install pandoc
 	. $(VENV); python3 ./scripts/minimal-html.py

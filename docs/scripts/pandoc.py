@@ -18,9 +18,9 @@ for filename in os.listdir(folder_path):
         except subprocess.CalledProcessError as e:
             print(f"Error converting {filename}: {e}")
         
-        # Remove the original HTML file after conversion
+"""         # Remove the original HTML file after conversion
         try:
             os.remove(html_file_path)
             print(f"Deleted {filename}")
         except OSError as e:
-            print(f"Error deleting {filename}: {e}")
+            print(f"Error deleting {filename}: {e}") """

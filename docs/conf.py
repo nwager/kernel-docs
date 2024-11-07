@@ -1,5 +1,6 @@
 import datetime
 import ast
+import os
 
 # Configuration for the Sphinx documentation builder.
 # All configuration specific to your project should be done in this file.
@@ -317,9 +318,9 @@ with open(".sphinx/latex_elements_template.txt", "rt") as file:
 
 latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))
 
-#####################
+######################
 # DOCX configuration #
-#####################
+######################
 
 docx_documents = [
     ('index', 'docxbuilder.docx', {
@@ -329,3 +330,13 @@ docx_documents = [
          'keywords': ['sphinx']
      }, 'true'),
 ]
+
+##############
+# Tags setup #
+##############
+
+if ('DEFAULT' in os.environ) and (os.environ['DEFAULT'] == 'True'):
+    tags.add('default')
+else:
+    os.environ['DEFAULT'] = 'False'
+    tags.add('docx')
