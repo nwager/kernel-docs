@@ -1,25 +1,46 @@
 # How to build an Ubuntu Linux kernel snap
 
-If you are running an Ubuntu Core system and want to use boot into a custom kernel, you will need a kernel snap.
+If you are running an Ubuntu Core system and want to use boot into a custom
+kernel, you will need a kernel snap.
 
 This guide shows how to build a kernel snap for local development and testing.
 
-```{important}
-Kernel snaps built using the method described here is not intended for us in production.
+```{only} docx
+*__Important__: Kernel snaps built using this method are not intended for use in
+production.*
 ```
+
+````{only} default
+```{important}
+Kernel snaps built using this method are not intended for use in production.
+```
+````
 
 ## Prerequisites
 
 Before you begin, you will need:
 
 - A Launchpad account
-- To be part of the Launchpad team that owns the project (for private repositories)
+- To be part of the Launchpad team that owns the project (for private
+repositories)
 - A build machine running Ubuntu
-- A device running an Ubuntu Core image with "dangerous" model assertion grade to install the custom kernel snap
+- A device running an Ubuntu Core image with "dangerous" model assertion grade
+to install the custom kernel snap
+  ````{only} default
   ```{note}
-  The Ubuntu version of the build host must match the version of the device where the kernel snap will be installed.
-  For example, use an Ubuntu 22.04 (Jammy) host to build the kernel snap for an Ubuntu Core 22 device.  
+  The Ubuntu version of the build host must match the version of the device
+  where the kernel snap will be installed.
+  For example, use an Ubuntu 22.04 (Jammy) host to build the kernel snap for an
+  Ubuntu Core 22 device.  
   See [Snap - Build environment options] for more information.
+  ```
+  ````
+  ```{only} docx
+  *__Note__: The Ubuntu version of the build host must match the version of the
+  device where the kernel snap will be installed.
+  For example, use an Ubuntu 22.04 (Jammy) host to build the kernel snap for an
+  Ubuntu Core 22 device.  
+  See [Snap - Build environment options] for more information.*
   ```
 
 ## Set up build environment
@@ -28,9 +49,12 @@ Set up the host machine which will be used to build the kernel snap.
 
 ### Install snapcraft
 
-Snapcraft is used to create a managed environment to build the kernel snap. You are recommended to use the latest/stable version of the snapcraft snap from the Snap Store.
+Snapcraft is used to create a managed environment to build the kernel snap. You
+are recommended to use the latest/stable version of the snapcraft snap from the
+Snap Store.
 
-On the build machine, remove any existing snapcraft debian package and install snapcraft by running:
+On the build machine, remove any existing snapcraft debian package and install
+snapcraft by running:
 
 ```{code-block} shell
 sudo apt-get update
@@ -41,15 +65,53 @@ sudo snap install snapcraft --classic
 
 ### Configure source repositories
 
-Configure the package source repositories for the host architecture by specifying the architecture (e.g. "[arch=amd64]" for x86-64 hosts) for each deb source list in the data sources file.
+Configure the package source repositories for the host architecture by
+specifying the architecture (e.g. "[arch=amd64]" for x86-64 hosts) for each deb
+source list in the data sources file.
 
+````{only} docx
++ Ubuntu 24.04 (Noble) and newer
+
+  Update the `/etc/apt/sources.list.d/ubuntu.sources` file.
+  For example, on a x86-64 host running Ubuntu 24.04 (Noble):
+
+  ```{code-block} text
+  :emphasize-lines: 6
+  [...]
+  Types: deb deb-src
+  URIs: http://archive.ubuntu.com/ubuntu
+  Suites: noble noble-updates noble-backports
+  Components: main universe restricted multiverse
+  Architectures: amd64
+  [...]
+  ```
++ Ubuntu 23.10 (Mantic) and older
+
+  Update the `/etc/apt/sources.list` file.
+  For example, on a x86-64 host running Ubuntu 22.04 (Jammy):
+
+  ```{code-block} text
+  deb [arch=amd64] http://archive.ubuntu.com/ubuntu focal main restricted
+  ```
+
+  Alternatively, if you are running a default installation of Ubuntu, you can do
+  a global update of all sources in the {file}`/etc/apt/sources.list` file.
+
+  ```{code-block} shell
+  sudo sed -ie 's/deb http/deb [arch=amd64] http/g' /etc/apt/sources.list
+  ```
+````
+
+``````{only} default
 `````{tab-set}
 ````{tab-item} Ubuntu 24.04 (Noble) and newer
-Update the `/etc/apt/sources.list.d/ubuntu.sources` file.
 
-For example, on a x86-64 host running Ubuntu 24.04 (Noble):
+Update the `/etc/apt/sources.list.d/ubuntu.sources` file. For example, on a
+x86-64 host running Ubuntu 24.04 (Noble):
+
 ```{code-block} text
 :emphasize-lines: 6
+
 [...]
 Types: deb deb-src
 URIs: http://archive.ubuntu.com/ubuntu
@@ -59,25 +121,31 @@ Architectures: amd64
 [...]
 ```
 ````
+
 ````{tab-item} Ubuntu 23.10 (Mantic) and older
-Update the `/etc/apt/sources.list` file.
-For example, on a x86-64 host running Ubuntu 22.04 (Jammy):
+
+Update the `/etc/apt/sources.list` file. For example, on a x86-64 host running
+Ubuntu 22.04 (Jammy):
 
 ```{code-block} text
 deb [arch=amd64] http://archive.ubuntu.com/ubuntu focal main restricted
 ```
 
-Alternatively, if you are running a default installation of Ubuntu, you can do a global update of all sources in the {file}`/etc/apt/sources.list` file.
+Alternatively, if you are running a default installation of Ubuntu, you can do a
+global update of all sources in the `/etc/apt/sources.list` file.
 
 ```{code-block} shell
 sudo sed -ie 's/deb http/deb [arch=amd64] http/g' /etc/apt/sources.list
 ```
 ````
 `````
+``````
 
 ### Add support for cross-compilation
 
-Add the target architecture (e.g. "arm64") to the list of supported architectures. This step is only required if the build machine is running on a different architecture than the target device for the kernel snap.
+Add the target architecture (e.g. "arm64") to the list of supported
+architectures. This step is only required if the build machine is running on a
+different architecture than the target device for the kernel snap.
 
 For example, if you want to build a kernel snap for an ARM64 device on a x86-64 
 host, run:
@@ -87,7 +155,8 @@ sudo dpkg --add-architecture arm64
 sudo apt update
 ```
 
-Confirm that support for the target architecture has been added successfully by running `dpkg --print-foreign-architectures`:
+Confirm that support for the target architecture has been added successfully by
+running <code>dpkg --print-foreign-architectures</code>:
 
 ```{terminal}
 :user: user
@@ -171,8 +240,13 @@ You are now ready to build the kernel snap.
    snap install --dangerous --devmode <name>_<version>_<arch>.snap
    ```
 
+   ````{only} default
    ```{note}
    Local snaps can only be installed if the Ubuntu Core image on the target device was created with a model assertion that  specifies the "dangerous" grade.
+   ```
+   ````
+   ```{only} docx
+   *__Note__: Local snaps can only be installed if the Ubuntu Core image on the target device was created with a model assertion that  specifies the "dangerous" grade.*
    ```
 
 % LINKS

@@ -230,7 +230,6 @@ linkcheck_anchors_ignore_for_url = [r"https://github\.com/.*"]
 extensions = [
     "canonical_sphinx",
     "sphinxcontrib.cairosvgconverter",
-    "docxbuilder",
 ]
 
 
@@ -238,6 +237,7 @@ extensions = [
 
 exclude_patterns = [
     "doc-cheat-sheet*",
+    "how-to-backup/*",
 ]
 
 # Adds custom CSS files, located under 'html_static_path'
@@ -316,3 +316,16 @@ with open(".sphinx/latex_elements_template.txt", "rt") as file:
     latex_config = file.read()
 
 latex_elements = ast.literal_eval(latex_config.replace("$PROJECT", project))
+
+#####################
+# DOCX configuration #
+#####################
+
+docx_documents = [
+    ('index', 'docxbuilder.docx', {
+         'title': 'Docxbuilder documentation',
+         'created': 'author',
+         'subject': 'Sphinx builder extension',
+         'keywords': ['sphinx']
+     }, 'true'),
+]

@@ -83,11 +83,11 @@ sp-pa11y-install:
 sp-install: $(VENVDIR)
 
 sp-run: sp-install
-	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
+	. $(VENV); $(VENVDIR)/bin/sphinx-autobuild -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS)
 
 # Doesn't depend on $(BUILDDIR) to rebuild properly at every run.
 sp-html: sp-install
-	. $(VENV); $(SPHINXBUILD) -W --keep-going -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(VENV); $(SPHINXBUILD) -W --keep-going -t default -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
 
 sp-epub: sp-install
 	. $(VENV); $(SPHINXBUILD) -b epub "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
@@ -163,6 +163,16 @@ sp-allmetrics: sp-html
 	@. $(VENV); find $(SPHINXDIR)/venv/lib/python*/site-packages/vale/vale_bin -size 195c -exec vale --config "$(SPHINXDIR)/vale.ini" $(TARGET) > /dev/null \;
 	@eval '$(METRICSDIR)/source_metrics.sh $(PWD)'
 	@eval '$(METRICSDIR)/build_metrics.sh $(PWD) $(METRICSDIR)'
+
+
+# Generate formatted docx files using Pandoc
+sp-html-docx: sp-install
+	. $(VENV); $(SPHINXBUILD) -t docx -b dirhtml "$(SOURCEDIR)" "$(BUILDDIR)" -w $(SPHINXDIR)/warnings.txt $(SPHINXOPTS)
+	. $(VENV); pip install beautifulsoup4 lxml python-docx
+	. $(VENV); sudo apt-get -y install pandoc
+	. $(VENV); python3 ./scripts/minimal-html.py
+	. $(VENV); python3 ./scripts/pandoc.py
+	. $(VENV); python3 ./scripts/format-docx.py
 
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
