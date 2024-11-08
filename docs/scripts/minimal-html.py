@@ -94,6 +94,9 @@ if __name__ == "__main__":
     # Path to docx list
     input_file = './scripts/docx-file-list'
 
+    # Create the "docx" directory if it doesn't exist
+    os.makedirs("docx", exist_ok=True)    
+
     # Process the input file
     process_input_file(input_file)
 
