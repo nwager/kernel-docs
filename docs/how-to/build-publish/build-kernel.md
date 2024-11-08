@@ -2,11 +2,18 @@
 
 If you have patches you need to apply to the Ubuntu Linux kernel, or you want to
 change some kernel configs, you may need to build your kernel from source.
-Follow these steps to customise and build the Ubuntu Linux kernel locally.
+Follow these steps to customise and build the Ubuntu Linux kernel.
 
+```{only} docx
+*__Important__: Kernels built using this method are not intended for use in
+production.
+```
+
+````{only} default
 ```{important}
 Kernels built using this method are not intended for use in production.
 ```
+````
 
 ## Prerequisites
 
