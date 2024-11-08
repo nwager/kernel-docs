@@ -156,7 +156,7 @@ sudo apt update
 ```
 
 Confirm that support for the target architecture has been added successfully by
-running <code>dpkg --print-foreign-architectures</code>:
+running <code>dpkg &#45;\&#45;print-foreign-architectures</code>:
 
 ```{terminal}
 :user: user

@@ -42,11 +42,33 @@ def process_input_file(input_file_path):
 
 # Function to process the HTML file
 def process_html(html_file_path, target_element, selector_type, selector_value, output_file_path):
+
+    # Define the base domain as a variable
+    base_domain = "https://canonical-kernel-docs.readthedocs-hosted.com/en/latest/"
+
+    # Define list of internal refs to replace
+    internal_refs = [
+        ["#how-to-build-kernel-setup", "#set-up-build-environment"],
+        ["#how-to-build-kernel-install-packages", "#install-required-packages"],
+        ["#how-to-build-kernel-obtain-source", "#obtain-the-source-for-an-ubuntu-release"],
+        ["../../prepare/obtain-kernel-source-git/", f"{base_domain}how-to/prepare/obtain-kernel-source-git/"]
+    ]
+
     try:
         # Open and parse the HTML file
         with open(html_file_path, 'r') as file:
             soup = BeautifulSoup(file, 'html.parser')
-        
+
+        # Find all <span> elements with an "id" attribute and remove them
+        for span in soup.find_all('span', id=True):
+            span.decompose()  # Removes the element from the DOM
+
+        # Loop through each replacement in internal_refs
+        for old_href, new_href in internal_refs:
+            # Find all <a> tags with class 'reference internal' and the matching href
+            for link in soup.find_all('a', class_='reference internal', href=old_href):
+                link['href'] = new_href
+
         # Find the target element based on the selector type and value
         if selector_type == 'id':
             target_element = soup.find(target_element, {'id': selector_value})

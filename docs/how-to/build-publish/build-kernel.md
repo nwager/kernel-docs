@@ -4,6 +4,10 @@ If you have patches you need to apply to the Ubuntu Linux kernel, or you want to
 change some kernel configs, you may need to build your kernel from source.
 Follow these steps to customise and build the Ubuntu Linux kernel locally.
 
+```{important}
+Kernels built using this method are not intended for use in production.
+```
+
 ## Prerequisites
 
 - This guide supports Xenial Xerus and newer.
@@ -16,9 +20,7 @@ need to {ref}`how-to-build-kernel-setup` and
 
 Otherwise, skip ahead to {ref}`how-to-build-kernel-obtain-source`.
 
-```{only} default
 (how-to-build-kernel-setup)=
-```
 ### Set up build environment
 
 To build an Ubuntu kernel, you will need to enable the necessary source
@@ -78,9 +80,7 @@ deb-src http://archive.ubuntu.com/ubuntu jammy-updates main
 `````
 ``````
 
-```{only} default
 (how-to-build-kernel-install-packages)=
-```
 ### Install required packages
 
 To install the required packages and build dependencies, run:
@@ -91,9 +91,7 @@ sudo apt build-dep -y linux linux-image-unsigned-$(uname -r)
 sudo apt install -y fakeroot llvm libncurses-dev dwarves
 ```
 
-```{only} default
 (how-to-build-kernel-obtain-source)=
-```
 ## Obtain the source for an Ubuntu release
 
 There are different ways to get the kernel sources, depending on the kernel
@@ -215,8 +213,8 @@ will produce the following .deb packages (and more):
 ## Install the new kernel
 
 Install all the debian packages generated from the previous step (on your build
-system or a different target system with the same architecture) with `dpkg` and
-reboot:
+system or a different target system with the same architecture) with
+<code>dpkg -i</code> and reboot:
 
 ```{code-block} shell
 cd <kernel_source_working_directory>/../
