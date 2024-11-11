@@ -129,7 +129,7 @@ directory.
 
 % TODO: Create how-to for Git method
 
-Use Git to get the source code for other kernel versions. See {doc}`How to obtain kernel source for an Ubuntu release using Git </how-to/prepare/obtain-kernel-source-git>` for detailed instructions.
+Use Git to get the source code for other kernel versions. See {doc}`How to obtain kernel source for an Ubuntu release using Git </how-to/source-code/obtain-kernel-source-git>` for detailed instructions.
 
 ## Prepare the kernel source
 

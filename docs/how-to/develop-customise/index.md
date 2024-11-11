@@ -1,4 +1,4 @@
-# Build and publish kernel
+# Development and customisation
 
 These guides cover how to build kernel packages, kernel snaps, and kernel
 components.
@@ -6,7 +6,6 @@ components.
 ```{toctree}
 :titlesonly:
 :maxdepth: 1
-:glob:
 
 Build a kernel <build-kernel>
 Build a kernel snap <build-kernel-snap>

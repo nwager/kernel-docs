@@ -63,7 +63,7 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 * Code of conduct
 * Get support
 * Join our online chat
-* Contribute
+* [Contribute to kernel docs](/how-to/contribute)
 * Roadmap
 * Thinking about using Example Product for your next project? Get in touch!
 
@@ -74,5 +74,4 @@ Example Project is a member of the Ubuntu family. It’s an open source project 
 how-to/index
 reference/index
 Explanation: About Ubuntu Linux kernel sources <explanation/ubuntu-linux-kernel-sources>
-contributing
 ```

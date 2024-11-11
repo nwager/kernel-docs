@@ -51,7 +51,7 @@ def process_html(html_file_path, target_element, selector_type, selector_value, 
         ["#how-to-build-kernel-setup", "#set-up-build-environment"],
         ["#how-to-build-kernel-install-packages", "#install-required-packages"],
         ["#how-to-build-kernel-obtain-source", "#obtain-the-source-for-an-ubuntu-release"],
-        ["../../prepare/obtain-kernel-source-git/", f"{base_domain}how-to/prepare/obtain-kernel-source-git/"]
+        ["../../source-code/obtain-kernel-source-git/", f"{base_domain}how-to/source-code/obtain-kernel-source-git/"]
     ]
 
     try:
