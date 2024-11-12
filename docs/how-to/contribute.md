@@ -1,31 +1,41 @@
 # How to contribute to Kernel documentation
 
-We believe that everyone has something valuable to contribute, whether you're a coder, a writer, or a tester. Here's how and why you can get involved:
+We believe that everyone has something valuable to contribute, whether you're a
+coder, a writer, or a tester. Here's how and why you can get involved:
 
-- **Why join us?** Work with like-minded people, develop your skills, connect with diverse professionals, and make a difference.
-- **What do you get?** Personal growth, recognition for your contributions, early access to new features, and the joy of seeing your work appreciated.
-- **Start early, start easy**: Dive into code contributions, improve documentation, or be among the first testers. Your presence matters, regardless of experience or the size of your contribution.
+- **Why join us?** Work with like-minded people, develop your skills, connect
+with diverse professionals, and make a difference.
+- **What do you get?** Personal growth, recognition for your contributions,
+early access to new features, and the joy of seeing your work appreciated.
+- **Start early, start easy**: Dive into code contributions, improve
+documentation, or be among the first testers. Your presence matters, regardless
+of experience or the size of your contribution.
 
 The guidelines below will help keep your contributions effective and meaningful.
 
 ## Code of conduct
 
-When contributing, you must abide by the [Ubuntu Code of Conduct](https://ubuntu.com/community/ethos/code-of-conduct).
+When contributing, you must abide by the [Ubuntu Code of Conduct].
 
 ## Licence and copyright
 
-By default, all contributions to Kernel documentation are licensed under the Creative Commons Attribution-Share Alike (CC-BY-SA) 3.0 Unported License. To view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/ or send a letter to Creative Commons, 171 Second Street, Suite 300, San Francisco, California, 94105, USA.
+By default, all contributions to Kernel documentation are licensed under the
+Creative Commons Attribution-Share Alike (CC-BY-SA) 3.0 Unported License. To
+view a copy of this license, visit http://creativecommons.org/licenses/by-sa/3.0/
+or send a letter to Creative Commons, 171 Second Street, Suite 300, San
+Francisco, California, 94105, USA.
 
-All contributors must sign the [Canonical contributor licence agreement](https://ubuntu.com/legal/contributors), which grants Canonical permission to use the contributions. The author of a change remains the copyright owner of their code (no copyright assignment occurs).
+All contributors must sign the [Canonical contributor licence agreement], which
+grants Canonical permission to use the contributions. The author of a change
+remains the copyright owner of their code (no copyright assignment occurs).
 
 ## Environment setup
 
-Kernel documentation is built on top of
-[Canonical's Sphinx starter pack](https://github.com/canonical/sphinx-docs-starter-pack)
-and hosted on [Read the Docs](https://about.readthedocs.com/).
+Kernel documentation is built on top of [Canonical's Sphinx starter pack] and
+hosted on [Read the Docs].
 
-To work on the project, you will need to have `make`, `python3.12-venv`, and
-Python installed. You can do so by running:
+To work on the project, you will need to have Python, `python3.12-venv`, and
+`make` packages installed.
 
 ```{code-block} console
 sudo apt install make
@@ -33,57 +43,112 @@ sudo apt install python3
 sudo apt install python3.12-venv
 ```
 
-<!--
 ## Submissions
 
-If you want to address an issue or a bug in Kernel documentation, notify in advance the people involved to avoid confusion; also, reference the issue or bug number when you submit the changes.
+If you want to address and issue or bug in this project, leave a comment in the
+issue indicating your intent to work on it. Also, reference the issue when you
+submit the changes.
 
-- Fork [our GitHub repository](https://github.com/canonical/Kernel documentation) and add the changes to your fork, properly structuring your commits, providing detailed commit messages, and signing your commits.
+- (Kernel docs members) Create a branch off the `main` branch of the
+[Kernel documentation GitHub repository] and add your changes to it.
 
-- Make sure the updated project builds and runs without warnings or errors; this includes linting, documentation, code, and tests.
+- (External contributors) Fork the [Kernel documentation GitHub repository] and
+add the changes to your fork.
 
-- Submit the changes as a [pull request (PR)](https://documentation.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
+- Properly structure your commits, provide detailed commit messages, and
+{ref}`sign your commits <how-to-contribute-signed-commits>`.
 
-Your changes will be reviewed in due time; if approved, they will eventually be merged.
+- Make sure the updated project builds and runs without warnings or errors; this
+includes linting, documentation, code (where applicable), and tests.
+
+- Submit the changes as a [pull request (PR)].
+
+Your changes will be reviewed in due time; if approved, they will eventually be
+merged.
 
 ### Describing pull requests
 
-To be properly considered, reviewed, and merged, your pull request must provide the following details:
+To be properly considered, reviewed, and merged, your pull request must provide
+the following details:
 
 - **Title**: Summarise the change in a short, descriptive title.
-- **Description**: Explain the problem that your pull request solves. Mention any new features, bug fixes, or refactoring.
-- **Relevant issues**: Reference any [related issues, pull requests, and repositories](https://documentation.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls).
+- **Description**: Explain the problem that your pull request solves. Mention
+any new features, bug fixes, or refactoring.
+- **Relevant issues**: Reference any [related issues, pull requests, and repositories].
 - **Testing**: Explain whether new or updated tests are included.
-- **Reversibility**: If you propose decisions that may be costly to reverse, list the reasons and suggest steps to reverse the changes if necessary.
+- **Reversibility**: If you propose decisions that may be costly to reverse,
+list the reasons and suggest steps to reverse the changes if necessary.
 
 ### Commit structure and messages
 
-Use separate commits for each logical change, and for changes to different components. Prefix your commit messages with the names of components they affect, using the code tree structure. For example, start a commit that updates the Kernel documentation service with `Kernel documentation/service:`.
+Use separate commits for each logical change, and for changes to different
+sections in the Kernel documentation.
+Prefix your commit messages with the names of sections or pages that they
+affect, using the code tree structure. For example, start a commit that updates
+the explanation page about SRU cycles with `explanation/about-sru:`.
 
-Use [conventional commits](https://www.conventionalcommits.org/) to ensure consistency across the project:
+Use [conventional commits] to ensure consistency across the project:
 
 ```none
-Ensure correct permissions and ownership for the content mounts
+Update generic format for source package repository
 
-* Work around an Kernel documentation issue regarding empty dirs: https://github.com/canonical/Kernel documentation/issues/12345
-
-* Ensure the source directory is owned by the user running a container.
-
-Links:
-- ...
-- ...
+* Added new URL structure details for Noble: https://github.com/canonical/kernel-docs/issues/12345
+* Separate content for pre- and post-24.04 release
 ```
 
-Such structure makes it easier to review contributions and simplifies porting fixes to other branches.
+Such structure makes it easier to review contributions and simplifies porting
+fixes to other branches.
 
+(how-to-contribute-signed-commits)=
 ### Signing commits
 
-To improve contribution tracking, we use the developer certificate of origin ([DCO 1.1](https://developercertificate.org/)) and require a "sign-off" for any changes going into each branch.
+All changes that go into the Kernel documentation repository require signed
+commits (using the `-S` or `--sign-off` option).
 
-The sign-off is a simple line at the end of the commit message certifying that you wrote it or have the right to commit it as an open-source contribution.
+```{code-block} console
+git commit -S -m "explanation/about-sru: updated life cycle diagram"
+```
 
-To sign off on a commit, use the `--signoff` option in `git commit`.
+Signed commits will have a GPG, SSH, or S/MIME signature that is
+cryptographically verifiable, and will be marked with a "Verified" or
+"Partially verified" badge in GitHub. This sign off verifies that you made the 
+changes or have the right to commit it as an open-source contribution.
 
+To set up locally signed commits and tags, see [GitHub Docs - About commit
+signature verification].
+
+````{tip}
+Configure your Git client to sign commits by default for any local repository by
+running:
+
+```{code-block} console
+git config --global commit.gpgsign true
+```
+
+See [GitHub Docs - Signing commits] for more information.
+````
+
+If you made an unsigned commit and encounter the "Commits must have verified
+signatures" error when pushing your changes to remote:
+
+1. Amend the most recent commit, add a signature without changing the commit
+message, and push again:
+
+   ```{code-block} console
+   git commit --amend --no-edit -n -S
+   git push
+   ```
+
+1. If you still encounter the same error, confirm that your GitHub account has
+been set up properly to sign commits as described in the [GitHub Docs - About
+commit signature verification].
+   ```{tip}
+   If you are using SSH keys to sign your commits, make sure that you added a
+   "Signing Key" type in your GitHub account. See [GitHub Docs - Adding a new
+   SSH key to your account] for more information.
+   ```
+
+<!--
 ## Code
 
 ### Formatting and linting
@@ -151,3 +216,16 @@ make linkcheck
 make woke
 ```
 -->
+
+% LINKS
+[Ubuntu Code of Conduct]: https://ubuntu.com/community/ethos/code-of-conduct
+[Canonical contributor licence agreement]: https://ubuntu.com/legal/contributors
+[Canonical's Sphinx starter pack]: https://github.com/canonical/sphinx-docs-starter-pack
+[Read the Docs]: https://about.readthedocs.com/
+[Kernel documentation GitHub repository]: https://github.com/canonical/kernel-docs
+[pull request (PR)]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requestsproposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
+[related issues, pull requests, and repositories]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls
+[conventional commits]: https://www.conventionalcommits.org/
+[GitHub Docs - About commit signature verification]: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
+[GitHub Docs - signing commits]: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
+[GitHub Docs - Adding a new SSH key to your account]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account
