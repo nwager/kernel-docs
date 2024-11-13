@@ -53,28 +53,75 @@ Add "\<series\>-proposed" (e.g. "jammy-proposed") to the following line in:
 
 Update the sources cache:
 
-```{code-block} console
+```{code-block} none
 sudo apt update
 ```
 
 Then install the kernel as per usual. If the kernel version in -proposed is the
 highest in any pocket, install it by running:
 
-```{code-block} console
+```{code-block} none
 sudo apt install linux-<flavour>
 ```
 
 If you want a specific (earlier) version, include the version in the command:
 
-```{code-block} console
+```{code-block} none
 sudo apt install linux-<flavour>=<version>
 ```
 
 After installing the kernel, reboot your machine. After booting up again, verify
 that the correct kernel is loaded with:
 
-```{code-block} console
+```{code-block} none
 uname -r
 ```
 
 This should print the correct kernel version and flavour.
+
+## Test the kernel
+
+Once you have the new kernel installed, testing can begin.
+
+If you do not have your own test suite and need an example workload, you can
+start with the [built-in Linux selftests]. To run these selftests, download the
+kernel source and compile the tests.
+
+```{code-block} none
+sudo apt source linux-image-unsigned-$(uname -r)
+cd <kernel_source_working_directory>
+sudo make -C tools/testing/selftests run_tests
+```
+
+For other examples of kernel testing projects, see:
+
+- [Linux Test Project]
+- [stress-ng]
+
+
+### Report regression bugs
+
+If you encounter a regression or bug while testing the kernel, please file a bug
+report on Launchpad. You can submit your report using any of the following
+methods:
+
+1. Run the `ubuntu-bug` tool on the system with the newly installed kernel.
+
+   ```{code-block} none
+   ubuntu-bug
+   ```
+
+1. Manually file a bug online at <https://bugs.launchpad.net/ubuntu/+filebug>.
+Make sure to target the correct kernel source package and Ubuntu series.
+
+For more information on Ubuntu bug reporting, see [Reporting Bugs].
+
+## Related topics
+
+- [Ubuntu Wiki - Enable Proposed]
+
+[built-in Linux selftests]: https://docs.kernel.org/dev-tools/kselftest.html
+[Linux Test Project]: https://linux-test-project.readthedocs.io/en/latest/
+[stress-ng]: https://github.com/ColinIanKing/stress-ng
+[Reporting Bugs]: https://help.ubuntu.com/community/ReportingBugs
+[Ubuntu Wiki - Enable Proposed]: https://wiki.ubuntu.com/Testing/EnableProposed

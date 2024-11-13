@@ -50,7 +50,7 @@ repository.
 
 For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocumentation-hosted.com/latest/).
 
-For syntax help and guidelines, refer to the [Canonical style guides](https://canonical-documentation-with-sphinx-and-readthedocumentationcom.readthedocumentation-hosted.com/#style-guides).
+For syntax help and guidelines, refer to the [Canonical style guides](https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/).
 
 In structuring, the documentation employs the [Diátaxis](https://diataxis.fr/) approach.
 
@@ -220,6 +220,44 @@ TODO: test command 2
 
 -->
 
+## Start contributing
+
+If you are ready to contribute but unsure where to start, here are some
+suggested starting points.
+
+1. Pick up an existing [GitHub Issue].
+
+   Whether you're a seasoned pro, or just beginning your journey in kernel
+   development and/or open source, there's always a variety of tasks for your
+   unique skills. Find an open issue that sparks your interest, assign it to
+   yourself, and start collaborating.
+
+1. Update and remove old documentation.
+
+   If you browse through the project and find information or whole pages that
+   are either outdated or obsolete, submit a PR with changes to update or delete
+   them.
+
+1. Migrate content from Ubuntu Wiki.
+
+   In an effort to make collaboration efforts more effective, and keep content
+   accurate and up-to-date, we aim to migrate as much content to our Read the
+   Docs instance. If you come across an article that is useful and relevant,
+   migrate the content from Wiki by creating a new file and/or section in this
+   repository.
+
+1. Work with what's in front of you.
+
+   If none of the earlier suggestions appeal to you, then just browse through
+   the existing Kernel documentation with an open mind and keen eye. If you see
+   a paragraph that can be written in a more concise manner, or a set of
+   instructions that can be made clearer, send along your suggestions for these
+   improvements. Big or small, an improvement is always a step in the right
+   direction.
+
+Thank you, and looking forward to your contributions!
+   
+
 <!-- LINKS -->
 
 [Ubuntu Code of Conduct]: https://ubuntu.com/community/ethos/code-of-conduct
@@ -233,3 +271,4 @@ TODO: test command 2
 [GitHub Docs - About commit signature verification]: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
 [GitHub Docs - signing commits]: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
 [GitHub Docs - Adding a new SSH key to your account]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account
+[GitHub Issue]: https://github.com/canonical/kernel-docs/issues
