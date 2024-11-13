@@ -6,6 +6,7 @@ on:
     paths:
       - 'docs/how-to/build-publish/build-kernel.md'
       - 'docs/how-to/build-publish/build-kernel-snap.md'
+      - 'docs/scripts/*'
 jobs:
   createDocxRelease:
     runs-on: ubuntu-22.04

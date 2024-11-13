@@ -1,9 +1,25 @@
 import os
 import shutil
+from datetime import datetime
 from docx import Document
-from docx.shared import Pt
+from docx.shared import Pt, RGBColor
 from docx.oxml import parse_xml
 from docx.oxml.ns import nsdecls
+
+# Function to add a footer with the current date
+def add_footer_with_date(doc):
+    section = doc.sections[0]
+    footer = section.footer
+    paragraph = footer.paragraphs[0] if footer.paragraphs else footer.add_paragraph()
+    
+    # Add text and apply formatting
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    run = paragraph.add_run(f"Generated on {current_date}")
+    
+    # Apply font size, color, and italic style
+    run.font.size = Pt(9)
+    run.font.color.rgb = RGBColor(128, 128, 128)
+    run.italic = True
 
 # Define folder path and list of search strings
 folder_path = "docx"
@@ -95,7 +111,7 @@ for filename in docx_files:
     # Open the original .docx file for in-place modification
     doc = Document(file_path)
 
-    # Step 2: Process each paragraph in the document
+    # Process each paragraph in the document
     for para in doc.paragraphs:
         for run in para.runs:
             # Check if any of the search strings are in the current run's text
@@ -109,7 +125,10 @@ for filename in docx_files:
                 shading_elm = parse_xml(r'<w:shd {} w:fill="EEEDEB"/>'.format(nsdecls('w')))
                 rPr.append(shading_elm)
 
-    # Step 3: Save changes directly to the original file
+    # Call the footer-adding function
+    add_footer_with_date(doc)
+
+    # Save changes directly to the original file
     doc.save(file_path)
     print(f"Formatted file: {file_path}")
 
