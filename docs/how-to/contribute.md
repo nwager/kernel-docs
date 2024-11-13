@@ -37,10 +37,40 @@ hosted on [Read the Docs].
 To work on the project, you will need to have Python, `python3.12-venv`, and
 `make` packages installed.
 
-```{code-block} console
+```{code-block} none
 sudo apt install make
 sudo apt install python3
 sudo apt install python3.12-venv
+```
+
+## Documentation
+
+The documentation source files are stored in the `docs` directory of the
+repository.
+
+For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocumentation-hosted.com/latest/).
+
+For syntax help and guidelines, refer to the [Canonical style guides](https://canonical-documentation-with-sphinx-and-readthedocumentationcom.readthedocumentation-hosted.com/#style-guides).
+
+In structuring, the documentation employs the [Diátaxis](https://diataxis.fr/) approach.
+
+To run the documentation locally before submitting your changes:
+
+```bash
+make run
+```
+
+### Automatic checks
+
+GitHub runs automatic checks on the documentation to verify spelling, validate links, and suggest inclusive language.
+
+You can (and should) run the same checks locally before committing and pushing
+a change:
+
+```bash
+make spelling
+make linkcheck
+make woke
 ```
 
 ## Submissions
@@ -105,7 +135,7 @@ fixes to other branches.
 All changes that go into the Kernel documentation repository require signed
 commits (using the `-S` or `--sign-off` option).
 
-```{code-block} console
+```{code-block} none
 git commit -S -m "explanation/about-sru: updated life cycle diagram"
 ```
 
@@ -121,7 +151,7 @@ signature verification].
 Configure your Git client to sign commits by default for any local repository by
 running:
 
-```{code-block} console
+```{code-block} none
 git config --global commit.gpgsign true
 ```
 
@@ -134,7 +164,7 @@ signatures" error when pushing your changes to remote:
 1. Amend the most recent commit, add a signature without changing the commit
 message, and push again:
 
-   ```{code-block} console
+   ```{code-block} none
    git commit --amend --no-edit -n -S
    git push
    ```
@@ -188,36 +218,10 @@ TODO: test command 1
 TODO: test command 2
 ```
 
-## Documentation
-
-Kernel documentation's documentation is stored in the `DOCDIR` directory of the repository. It is based on the [Canonical starter pack](https://canonical-starter-pack.readthedocumentation-hosted.com/latest/) and hosted on [Read the documentation](https://about.readthedocumentation.com/).
-
-For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocumentation-hosted.com/latest/).
-
-For syntax help and guidelines, refer to the [Canonical style guides](https://canonical-documentation-with-sphinx-and-readthedocumentationcom.readthedocumentation-hosted.com/#style-guides).
-
-In structuring, the documentation employs the [Diátaxis](https://diataxis.fr/) approach.
-
-To run the documentation locally before submitting your changes:
-
-```bash
-make run
-```
-
-### Automatic checks
-
-GitHub runs automatic checks on the documentation to verify spelling, validate links, and suggest inclusive language.
-
-You can (and should) run the same checks locally:
-
-```bash
-make spelling
-make linkcheck
-make woke
-```
 -->
 
-% LINKS
+<!-- LINKS -->
+
 [Ubuntu Code of Conduct]: https://ubuntu.com/community/ethos/code-of-conduct
 [Canonical contributor licence agreement]: https://ubuntu.com/legal/contributors
 [Canonical's Sphinx starter pack]: https://github.com/canonical/sphinx-docs-starter-pack

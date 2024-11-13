@@ -58,9 +58,11 @@ processes for customisation and maintenance.
 
 ## Project and community
 
-Example Project is a member of the Ubuntu family. It’s an open source project that warmly welcomes community projects, contributions, suggestions, fixes and constructive feedback.
+Kernel documentation is a member of the Ubuntu family. It’s an open source
+documentation project that warmly welcomes community contributions, suggestions,
+fixes and constructive feedback.
 
-* Code of conduct
+* [Code of conduct](https://ubuntu.com/community/ethos/code-of-conduct)
 * Get support
 * Join our online chat
 * [Contribute to kernel docs](/how-to/contribute)

@@ -10,7 +10,7 @@ kernel packages and components.
 
 Source code access and management </how-to/source-code/index>
 Development and customisation </how-to/develop-customise/index>
-/how-to/testing-verification/test-kernel-in-proposed
+Test kernels in -proposed </how-to/testing-verification/test-kernel-in-proposed>
 Contribute to kernel docs </how-to/contribute>
 ```
 
