@@ -19,8 +19,6 @@ This documentation serves developers, partners, and others working with Ubuntu
 kernels, offering guidance on kernel workflows, tools, SRU timelines, and
 processes for customisation and maintenance.
 
-
-
 ---------
 
 ## In this documentation
