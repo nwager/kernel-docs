@@ -30,7 +30,9 @@ https://git.launchpad.net/~canonical-kernel/ubuntu/+source/linux-aws/+git/noble
 ```
 
 You can get the correct URL by checking the list of Git repositories for
-the [Ubuntu Kernel Repositories team] or [Canonical Kernel team].
+the [Ubuntu Kernel Repositories team] or [Canonical Kernel team] or by
+checking the automatically updated list of
+[currently supported Ubuntu kernel repositories].
 
 ## Kernel source repository branches
 
@@ -54,3 +56,4 @@ You will find the following branches in each Ubuntu kernel source repository.
 
 [Ubuntu Kernel Repositories team]: https://code.launchpad.net/~ubuntu-kernel/+git
 [Canonical Kernel team]: https://code.launchpad.net/~canonical-kernel/+git
+[currently supported Ubuntu kernel repositories]: https://kernel.ubuntu.com/git/
