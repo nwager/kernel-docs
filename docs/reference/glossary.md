@@ -12,7 +12,7 @@ DKMS
   See the dkms manpages for more information.
 
 ABI
-  Application Binary Interface, or ABI defines a stable interface between userspace
+  Application Binary Interface, or ABI defines a stable interface between user space
   applications and the kernel. It ensures that the binaries of applications compiled
   for one version of the kernel remain compatible with subsequent versions, as long as the
   ABI remains unchanged.
