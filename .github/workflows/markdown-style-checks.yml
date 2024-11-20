@@ -18,4 +18,4 @@ jobs:
       - uses: DavidAnson/markdownlint-cli2-action@v16
         with:
           config: "docs/.sphinx/.markdownlint.json"
-
+          working-directory: "docs"
