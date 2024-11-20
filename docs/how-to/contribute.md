@@ -62,7 +62,8 @@ make run
 
 ### Automatic checks
 
-GitHub runs automatic checks on the documentation to verify spelling, validate links, and suggest inclusive language.
+GitHub runs automatic checks on the documentation to verify spelling, validate
+links, and suggest inclusive language.
 
 You can (and should) run the same checks locally before committing and pushing
 a change:
@@ -132,50 +133,23 @@ fixes to other branches.
 (how-to-contribute-signed-commits)=
 ### Signing commits
 
-All changes that go into the Kernel documentation repository require signed
-commits (using the `-S` or `--sign-off` option).
+All changes that go into the Kernel documentation repository need to be signed
+off (using the `-s` or `--signoff` option) by the contributor.
 
 ```{code-block} none
-git commit -S -m "explanation/about-sru: updated life cycle diagram"
+git commit -s -m "explanation/about-sru: updated life cycle diagram"
 ```
 
-Signed commits will have a GPG, SSH, or S/MIME signature that is
-cryptographically verifiable, and will be marked with a "Verified" or
-"Partially verified" badge in GitHub. This sign off verifies that you made the 
-changes or have the right to commit it as an open-source contribution.
+This sign off confirms that you made the changes or have the right to commit it
+as an open-source contribution.
 
-To set up locally signed commits and tags, see [GitHub Docs - About commit
-signature verification].
-
-````{tip}
-Configure your Git client to sign commits by default for any local repository by
-running:
-
-```{code-block} none
-git config --global commit.gpgsign true
-```
-
-See [GitHub Docs - Signing commits] for more information.
-````
-
-If you made an unsigned commit and encounter the "Commits must have verified
-signatures" error when pushing your changes to remote:
-
-1. Amend the most recent commit, add a signature without changing the commit
-message, and push again:
+If you made a commit without signing off, you can run the following to amend
+the most recent commit, append the "Signed-off-by" line without changing the
+commit message, and push again:
 
    ```{code-block} none
-   git commit --amend --no-edit -n -S
+   git commit --amend --no-edit -n -s
    git push
-   ```
-
-1. If you still encounter the same error, confirm that your GitHub account has
-been set up properly to sign commits as described in the [GitHub Docs - About
-commit signature verification].
-   ```{tip}
-   If you are using SSH keys to sign your commits, make sure that you added a
-   "Signing Key" type in your GitHub account. See [GitHub Docs - Adding a new
-   SSH key to your account] for more information.
    ```
 
 <!--
@@ -268,7 +242,4 @@ Thank you, and looking forward to your contributions!
 [pull request (PR)]: https://docs.github.com/en/pull-requests/collaborating-with-pull-requestsproposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork
 [related issues, pull requests, and repositories]: https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/autolinked-references-and-urls
 [conventional commits]: https://www.conventionalcommits.org/
-[GitHub Docs - About commit signature verification]: https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification
-[GitHub Docs - signing commits]: https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits
-[GitHub Docs - Adding a new SSH key to your account]: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account
 [GitHub Issue]: https://github.com/canonical/kernel-docs/issues
