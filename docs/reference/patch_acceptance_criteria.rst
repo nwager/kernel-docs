@@ -2,8 +2,8 @@
 
 .. _ubuntu-patches-acceptance-criteria:
 
-Ubuntu patches acceptance criteria
-==================================
+Patch acceptance criteria
+=========================
 
 Generally, any patch is eligible for inclusion in the Ubuntu kernel, though some
 criteria apply.
@@ -53,8 +53,23 @@ SRU patches
 This section describes additional reasons why the Ubuntu Kernel Team won't
 approve a SRU patch.
 
-Missing/bad BugLink
-^^^^^^^^^^^^^^^^^^^
+Launchpad bug
+^^^^^^^^^^^^^
+
+Each patch must be related to a dedicated Launchpad bug. The bug should be
+targeted to the kernels and series that the patch is aiming to lend.
+
+The bug description must follow the `SRU template`_.
+
+.. _SRU template: https://canonical-sru-docs.readthedocs-hosted.com/en/latest/reference/bug-template/
+
+See `this example Launchpad bug`_.
+
+.. _this example Launchpad bug: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1995957>
+
+
+BugLink
+^^^^^^^
 
 Patches and cover letter must have a link to a Launchpad bug as the first line
 of the description.
@@ -80,22 +95,8 @@ The link must not be in its long form
 
     ...
 
-Missing/bad Bug
-^^^^^^^^^^^^^^^
-
-The Launchpad bug should be targeted to the kernels and series that the patch
-is aiming to lend.
-
-The bug description must follow the `SRU template`_.
-
-.. _SRU template: https://canonical-sru-docs.readthedocs-hosted.com/en/latest/reference/bug-template/
-
-See `this example Launchpad bug`_.
-
-.. _this example Launchpad bug: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1995957>
-
-Missing/bad SRU cover letter
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+SRU cover letter
+^^^^^^^^^^^^^^^^
 
 The patch must come with a *cover letter* that has both a short link to the SRU
 bug and a copy of the *SRU Justification* from the bug. It can be generated
@@ -134,8 +135,8 @@ Cherry-pick or backport
 This section describes additional reasons why the Ubuntu Kernel Team won't
 approve a cherry-pick or backport patch.
 
-Not upstream
-^^^^^^^^^^^^
+Upstream
+^^^^^^^^
 
 The patch should be in the mainline_ or the stable_ tree. Having the patch in
 a maintainer subtree is not enough, because the subtree might change. Having
@@ -145,8 +146,8 @@ the patch in linux-next_ is bare minimum.
 .. _stable: https://git.kernel.org/pub/scm/linux/kernel/git/stable/linux.git/
 .. _linux-next: https://www.kernel.org/doc/man-pages/linux-next.html
 
-Missing/bad upstream source
-^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Source
+^^^^^^
 
 .. highlight:: text
 
@@ -172,8 +173,8 @@ tree in full::
 
 .. highlight:: email
 
-Missing/bad Signed-off-by
-^^^^^^^^^^^^^^^^^^^^^^^^^
+Signed-off-by
+^^^^^^^^^^^^^
 
 The patches must have your Signed-off-by as the last line, after the upstream
 cherry-picked line. It can be generated using the ``-s`` option of the
@@ -211,8 +212,8 @@ SAUCE
 This section describes additional reasons why the Ubuntu Kernel Team won't
 approve a SAUCE patch.
 
-Missing/bad SAUCE prefix
-^^^^^^^^^^^^^^^^^^^^^^^^
+SAUCE prefix
+^^^^^^^^^^^^
 
 The patches must have the ``UBUNTU: SAUCE:`` prefix.
 
@@ -232,8 +233,8 @@ Backport or SAUCE
 This section describes additional reasons why the Ubuntu Kernel Team won't
 approve a SAUCE or backport patch.
 
-Lack of Testing
-^^^^^^^^^^^^^^^
+Testing
+^^^^^^^
 
 It is very important for patches to have the upstream maintainer(s) review
 and do wider testing on different types of hardware for various types of
