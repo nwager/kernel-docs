@@ -27,7 +27,8 @@ processes for customisation and maintenance.
 
 ```{grid-item-card} [Tutorials](index)
 
-**Start here**: a hands-on introduction to Example Product for new users
+**Start here**: a hands-on introduction to Ubuntu Linux kernel development for
+new users
 ```
 
 ```{grid-item-card} [How-to guides](/how-to/index)
