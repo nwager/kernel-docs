@@ -48,7 +48,7 @@ sudo apt install python3.12-venv
 The documentation source files are stored in the `docs` directory of the
 repository.
 
-For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocumentation-hosted.com/latest/).
+For general guidance, refer to the [starter pack guide](https://canonical-starter-pack.readthedocs-hosted.com/latest/).
 
 For syntax help and guidelines, refer to the [Canonical style guides](https://canonical-documentation-with-sphinx-and-readthedocscom.readthedocs-hosted.com/).
 
