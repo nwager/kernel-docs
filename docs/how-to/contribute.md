@@ -87,7 +87,7 @@ submit the changes.
 add the changes to your fork.
 
 - Properly structure your commits, provide detailed commit messages, and
-{ref}`sign your commits <how-to-contribute-signed-commits>`.
+{ref}`sign off your commits <how-to-contribute-sign-off-commits>`.
 
 - Make sure the updated project builds and runs without warnings or errors; this
 includes linting, documentation, code (where applicable), and tests.
@@ -121,7 +121,7 @@ the explanation page about SRU cycles with `explanation/about-sru:`.
 Use [conventional commits] to ensure consistency across the project:
 
 ```none
-Update generic format for source package repository
+docs(how-to/get-sources): Update generic format for source package repository
 
 * Added new URL structure details for Noble: https://github.com/canonical/kernel-docs/issues/12345
 * Separate content for pre- and post-24.04 release
@@ -130,14 +130,14 @@ Update generic format for source package repository
 Such structure makes it easier to review contributions and simplifies porting
 fixes to other branches.
 
-(how-to-contribute-signed-commits)=
-### Signing commits
+(how-to-contribute-sign-off-commits)=
+### Sign off on commits
 
 All changes that go into the Kernel documentation repository need to be signed
 off (using the `-s` or `--signoff` option) by the contributor.
 
 ```{code-block} none
-git commit -s -m "explanation/about-sru: updated life cycle diagram"
+git commit -s -m "docs(explanation/about-sru): updated life cycle diagram"
 ```
 
 This sign off confirms that you made the changes or have the right to commit it
