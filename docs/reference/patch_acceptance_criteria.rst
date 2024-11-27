@@ -129,6 +129,15 @@ Example cover letter::
      sound/pci/hda/patch_realtek.c | 1 +
      1 file changed, 1 insertion(+)
 
+If the patchset is a new version of a previous patchset posted on the
+mailing-list, the cover letter should explain what has changed for this new
+submission.
+
+If the patchset involved some decisions that were not obvious, it should be
+explained in the cover letter to ease the review of the patchset. If you choose
+to send a SAUCE patch instead of the other options, the rationale should be
+explained in the cover letter.
+
 Cherry-pick or backport
 -----------------------
 
