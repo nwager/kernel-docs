@@ -149,7 +149,7 @@ commit message, and push again:
 
    ```{code-block} none
    git commit --amend --no-edit -n -s
-   git push
+   git push --force
    ```
 
 <!--
