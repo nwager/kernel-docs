@@ -100,8 +100,7 @@ SRU cover letter
 
 The patch should come with a *cover letter* that has both a short link to the
 SRU bug and a copy of the *SRU Justification* from the bug. It can be generated
-using both the ``--cover-letter`` and the ``--compose`` options of the
-git-cherry-pick_ command.
+using the ``--cover-letter`` option of the git-send-email_ command.
 
 Example cover letter::
 
@@ -309,3 +308,4 @@ time-consuming on our side, and we don’t have the resources to both do this
 and deliver a stable Linux OS
 
 .. _git-cherry-pick: https://manpages.ubuntu.com/manpages/trusty/en/man1/git-cherry-pick.1.html
+.. _git-send-email: https://manpages.ubuntu.com/manpages/trusty/en/man1/git-send-email.1.html
