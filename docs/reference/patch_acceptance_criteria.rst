@@ -175,6 +175,11 @@ In case the upstream source is linux-next, you should explicit it::
 
     (cherry picked from commit 622f21994506e1dac7b8e4e362c8951426e032c5 linux-next)
 
+In case the upstream source is another Ubuntu kernel (even a SAUCE patch), you
+can explicit it with the name of the source kernel::
+
+    (cherry picked from commit 622f21994506e1dac7b8e4e362c8951426e032c5 plucky:linux)
+
 In case the provenance is anything else, you should explicit the source git
 tree in full::
 
