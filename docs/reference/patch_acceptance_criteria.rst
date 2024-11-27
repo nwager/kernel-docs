@@ -71,8 +71,8 @@ See `this example Launchpad bug`_.
 BugLink
 ^^^^^^^
 
-Patches and cover letter must have a link to a Launchpad bug as the first line
-of the description.
+Patches and cover letter should have a link to a Launchpad bug as the first
+line of the description.
 
 The link must be in the short form ``https://bugs.launchpad.net/bugs/XXXXXX``.
 
@@ -98,8 +98,8 @@ The link must not be in its long form
 SRU cover letter
 ^^^^^^^^^^^^^^^^
 
-The patch must come with a *cover letter* that has both a short link to the SRU
-bug and a copy of the *SRU Justification* from the bug. It can be generated
+The patch should come with a *cover letter* that has both a short link to the
+SRU bug and a copy of the *SRU Justification* from the bug. It can be generated
 using both the ``--cover-letter`` and the ``--compose`` options of the
 git-cherry-pick_ command.
 
