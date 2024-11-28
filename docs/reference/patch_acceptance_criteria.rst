@@ -100,8 +100,7 @@ SRU cover letter
 
 The patch should come with a *cover letter* that has both a short link to the
 SRU bug and a copy of the *SRU Justification* from the bug. It can be generated
-using both the ``--cover-letter`` and the ``--compose`` options of the
-git-cherry-pick_ command.
+using the ``--cover-letter`` option of the git-send-email_ command.
 
 Example cover letter::
 
@@ -174,6 +173,11 @@ before your *Signed-off-by*::
 In case the upstream source is linux-next, you should explicit it::
 
     (cherry picked from commit 622f21994506e1dac7b8e4e362c8951426e032c5 linux-next)
+
+In case the upstream source is one of the stable trees, you should indicate
+which one the commit belongs to::
+
+     (cherry picked from commit e0aab7b07a9375337847c9d74a5ec044071e01c8 linux-4.19.y)
 
 In case the upstream source is another Ubuntu kernel (even a SAUCE patch), you
 can explicit it with the name of the source kernel::
@@ -309,3 +313,4 @@ time-consuming on our side, and we don’t have the resources to both do this
 and deliver a stable Linux OS
 
 .. _git-cherry-pick: https://manpages.ubuntu.com/manpages/trusty/en/man1/git-cherry-pick.1.html
+.. _git-send-email: https://manpages.ubuntu.com/manpages/trusty/en/man1/git-send-email.1.html
