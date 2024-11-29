@@ -65,7 +65,7 @@ The bug description must follow the `SRU template`_.
 
 See `this example Launchpad bug`_.
 
-.. _this example Launchpad bug: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1995957>
+.. _this example Launchpad bug: https://bugs.launchpad.net/ubuntu/+source/linux/+bug/1995957
 
 
 BugLink
