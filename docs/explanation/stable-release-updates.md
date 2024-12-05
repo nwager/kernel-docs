@@ -83,7 +83,7 @@ associated stable Ubuntu kernel tree.
 The patch will then be considered for release in an upcoming SRU cycle if all
 the patch acceptance criteria are met.
 
-See the {doc}`Ubuntu patch acceptance criteria </reference/patch_acceptance_criteria>`
+See the {doc}`Ubuntu patch acceptance criteria </reference/patch-acceptance-criteria>`
 for more information.
 
 (exp-sru-kernel-respins)=
