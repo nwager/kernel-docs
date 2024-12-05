@@ -23,7 +23,7 @@ oem-kernels
 :maxdepth: 1
 :caption: Kernel patch guidelines
 
-patch_acceptance_criteria
+patch-acceptance-criteria
 ```
 
 ```{toctree}
