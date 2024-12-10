@@ -61,10 +61,13 @@ Then install the kernel as per usual. If the kernel version in -proposed is the
 highest in any pocket, install it by running:
 
 ```{code-block} none
-sudo apt install linux-<flavour>
+sudo apt install linux-<flavour> # install kernel metapackage
+# or
+sudo apt install linux-image-<version> # install the ABI-named image directly
 ```
 
-If you want a specific (earlier) version, include the version in the command:
+If you want a specific (earlier) version of a metapackage, include the version
+in the command:
 
 ```{code-block} none
 sudo apt install linux-<flavour>=<version>
