@@ -42,7 +42,7 @@ Add "\<series\>-proposed" (e.g. "jammy-proposed") to the following line in:
   deb http://archive.ubuntu.com/ubuntu/ <series>-proposed restricted main multiverse universe
   ```
 
-- {file}`/etc/apt/sources.list.d/` (for non-x86 architectures):
+- {file}`/etc/apt/sources.list` (for non-x86 architectures):
   ```{code-block} text
   deb http://ports.ubuntu.com/ubuntu-ports <series>-proposed restricted main multiverse universe
   ```
