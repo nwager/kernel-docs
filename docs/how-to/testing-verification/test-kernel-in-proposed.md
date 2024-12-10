@@ -88,7 +88,7 @@ start with the [built-in Linux selftests]. To run these selftests, download the
 kernel source and compile the tests.
 
 ```{code-block} none
-sudo apt source linux-image-unsigned-$(uname -r)
+apt source linux-image-unsigned-$(uname -r)
 cd <kernel_source_working_directory>
 sudo make -C tools/testing/selftests run_tests
 ```
