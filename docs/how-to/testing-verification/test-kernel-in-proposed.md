@@ -51,19 +51,24 @@ Add "\<series\>-proposed" (e.g. "jammy-proposed") to the following line in:
 
 ## Install the pre-release kernel
 
-Update the sources cache:
+First, update the sources cache:
 
 ```{code-block} none
 sudo apt update
 ```
 
-Then install the kernel as per usual. If the kernel version in -proposed is the
-highest in any pocket, install it by running:
+Then proceed to install the kernel using either a metapackage or a specific
+ABI-named image.
+
+### Install via kernel metapackage
+
+Use this approach if you want to receives automatic updates for the latest
+version of the kernel in that series.
+
+If the kernel version in -proposed is the highest in any pocket, run:
 
 ```{code-block} none
-sudo apt install linux-<flavour> # install kernel metapackage
-# or
-sudo apt install linux-image-<version> # install the ABI-named image directly
+sudo apt install linux-<flavour>
 ```
 
 If you want a specific (earlier) version of a metapackage, include the version
@@ -72,6 +77,17 @@ in the command:
 ```{code-block} none
 sudo apt install linux-<flavour>=<version>
 ```
+
+### Install via ABI-named kernel image
+
+Use this method to install a specific kernel version without being tied to the
+kernel series metapackage.
+
+```{code-block} none
+sudo apt install linux-image-<abi>-<flavour>
+```
+
+### Boot into the new kernel
 
 After installing the kernel, reboot your machine. After booting up again, verify
 that the correct kernel is loaded with:
