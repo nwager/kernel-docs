@@ -62,7 +62,7 @@ ABI-named image.
 
 ### Install via kernel metapackage
 
-Use this approach if you want to receives automatic updates for the latest
+Use this approach if you want to receive automatic updates for the latest
 version of the kernel in that series.
 
 If the kernel version in -proposed is the highest in any pocket, run:
