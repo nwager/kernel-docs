@@ -42,7 +42,7 @@ Add "\<series\>-proposed" (e.g. "jammy-proposed") to the following line in:
   deb http://archive.ubuntu.com/ubuntu/ <series>-proposed restricted main multiverse universe
   ```
 
-- {file}`/etc/apt/sources.list.d/` (for non-x86 architectures):
+- {file}`/etc/apt/sources.list` (for non-x86 architectures):
   ```{code-block} text
   deb http://ports.ubuntu.com/ubuntu-ports <series>-proposed restricted main multiverse universe
   ```
@@ -51,24 +51,43 @@ Add "\<series\>-proposed" (e.g. "jammy-proposed") to the following line in:
 
 ## Install the pre-release kernel
 
-Update the sources cache:
+First, update the sources cache:
 
 ```{code-block} none
 sudo apt update
 ```
 
-Then install the kernel as per usual. If the kernel version in -proposed is the
-highest in any pocket, install it by running:
+Then proceed to install the kernel using either a metapackage or a specific
+ABI-named image.
+
+### Install via kernel metapackage
+
+Use this approach if you want to receive automatic updates for the latest
+version of the kernel in that series.
+
+If the kernel version in -proposed is the highest in any pocket, run:
 
 ```{code-block} none
 sudo apt install linux-<flavour>
 ```
 
-If you want a specific (earlier) version, include the version in the command:
+If you want a specific (earlier) version of a metapackage, include the version
+in the command:
 
 ```{code-block} none
 sudo apt install linux-<flavour>=<version>
 ```
+
+### Install via ABI-named kernel image
+
+Use this method to install a specific kernel version without being tied to the
+kernel series metapackage.
+
+```{code-block} none
+sudo apt install linux-image-<abi>-<flavour>
+```
+
+### Boot into the new kernel
 
 After installing the kernel, reboot your machine. After booting up again, verify
 that the correct kernel is loaded with:
@@ -88,7 +107,7 @@ start with the [built-in Linux selftests]. To run these selftests, download the
 kernel source and compile the tests.
 
 ```{code-block} none
-sudo apt source linux-image-unsigned-$(uname -r)
+apt source linux-image-unsigned-$(uname -r)
 cd <kernel_source_working_directory>
 sudo make -C tools/testing/selftests run_tests
 ```
